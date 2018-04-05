@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import authors from './data.js';
+// import authors from './data.js';
 
 class AuthorList extends Component {
   render() {
     return (    	
-			authors.map((author)=>{
+			this.props.authors.map((author)=>{
 	          	return (
 		            <div className="col-4">
 		              <a href="#" className="card">
