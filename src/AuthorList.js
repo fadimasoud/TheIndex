@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 
 class AuthorList extends Component {
   render() {
-    return (    	
+    return ( 
+    	!this.props.loading ?    	(
 			this.props.authors.map((author)=>{
 	          	return (
 		            <div className="col-4">
@@ -20,6 +21,16 @@ class AuthorList extends Component {
 		              </a>
 		            </div>
 	        	)})
+    	):
+    	(
+    	<div className="col-4">
+    		<a href="#" className="card">
+		              //you will not wait for too long <h1 asdasdasd salkdhalskhdajshdaksjhdkjasdhkjasgdkajshgdjhasgdjhasgdjhgdahjsdgjashgdjhasgd/> 
+		                  
+		              </a>
+		       	</div>
+	)
+
 		);
   	}
 }

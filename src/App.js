@@ -8,20 +8,20 @@ class App extends Component {
 	constructor(props) {
     super(props);
     this.state = {
-    authors: []
-	}
+    authors: [],
+    loading: true
+    };
+    
+	
   }
 	componentDidMount() {
     
     	axios.get('https://the-index-api.herokuapp.com/api/authors/')
 		  .then(res => res.data)
-		  .then(data => this.setState({authors:data}))
-		  .catch(err => console.error(err))
+		  .then(data => this.setState({authors:data, loading:false}))
+		  .catch(err => this.setState({loading:true}))
     
-    // setInterval(
-    //   () => this.tick(), 
-    //   1000
-    // );
+
   }
   render() {
     return (
@@ -37,7 +37,7 @@ class App extends Component {
 		        <div className="authors">
 		          <h3>Authors</h3>
 		          <div className="row">
-		          <AuthorList authors={this.state.authors}/>		          
+		          <AuthorList authors={this.state.authors} loading={this.state.loading}/>		          
 		      	  </div>
 		      	</div>
 			 </div>
